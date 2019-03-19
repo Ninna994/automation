@@ -1,16 +1,16 @@
 # Installation Process
 
 1. Installation of Java SDK 8 
-   * google _Java SDK 8_ and download file for your operating system
-   * follow installation and close dialog window
-   * download _Java SE Dev Kit 8u201_ for your operation system
-1. Installation od Android Studio
-   * google _Android studio and SDK_ and download version for your operating system
-   * Install SDK when asked to
-   * Navigate to _C:/Users/Username/AppData/Local/Android/Sdk_ and **copy** that folder
-   * Paste it to root folder _C:/_
-   * Rename folder to _android-sdk_
-1. Configuring PATH
+                      * google _Java SDK 8_ and download file for your operating system
+                      * follow installation and close dialog window
+                      * download _Java SE Dev Kit 8u201_ for your operation system
+                   1. Installation od Android Studio
+                      * google _Android studio and SDK_ and download version for your operating system
+                      * Install SDK when asked to
+                      * Navigate to _C:/Users/Username/AppData/Local/Android/Sdk_ and **copy** that folder
+                      * Paste it to root folder _C:/_
+                      * Rename folder to _android-sdk_
+                   1. Configuring PATH
    * Go to My Computer, right-click and select _properties_
    * Go to Advanced Properties and **Environment Variables**
    * Under System Variables find **PATH** and click _Edit_
