@@ -1,11 +1,12 @@
 Given("I land on home screen") do
-  puts('I landed on Home screen')
+  find_element(id: "action_search")
+  find_element(id: "action_add_favorites")
 end
 When("I press on menu icon") do
-  puts('Menu icon pressed')
+  find_element(accessibility_id: "Open navigation drawer").click
 end
 Then("I should see left side menu") do
-  puts('I see left side menu')
+  text("Unit Converter")
 end
 But("I didn't see menu") do
   puts('I cannot see')
