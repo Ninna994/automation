@@ -12,9 +12,11 @@ But("I didn't see menu") do
   puts('I cannot see')
 end
 When("I press on My conversions button") do
-  puts("My conversion button pressed")
+  text("My conversions").click
 end
 
 Then("I land on My conversions screen") do
-  puts("Landed on My conversions screen")
+ find_element(id: "text_info_no_custom_conversions")
 end
+
+
