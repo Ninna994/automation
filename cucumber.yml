@@ -1,0 +1,13 @@
+#for cucumber profiles
+custom: -t @custom_conversions --format html --out report.html --format pretty
+home: -t @home_screen --format html --out report.html --format pretty
+main: -t @main_menu --format html --out report.html --format pretty
+
+any: -t @custom_conversions,@home_screen --format html --out report.html --format pretty
+strict: -t @custom_conversions -t @home_screen --format html --out report.html --format pretty
+
+wip: -t @wip --format html --out report.html --format pretty
+gestures: -t @gestures --format html --out report.html --format pretty
+
+# all tests
+#if test fails attach screenshot to report if test fails

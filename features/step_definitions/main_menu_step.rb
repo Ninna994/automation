@@ -19,4 +19,3 @@ Then("I land on My conversions screen") do
  find_element(id: "text_info_no_custom_conversions")
 end
 
-
