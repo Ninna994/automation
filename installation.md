@@ -1,6 +1,6 @@
 # Installation Process
 
-1. Installation of Java SDK 8 
+1. Installation of Java SDK 8
                       * google _Java SDK 8_ and download file for your operating system
                       * follow installation and close dialog window
                       * download _Java SE Dev Kit 8u201_ for your operation system
@@ -37,7 +37,7 @@
 1. Installing Cucumber
    * Go to terminal
    * type **gem install cucumber**
-   * This will install cucumber 
+   * This will install cucumber
    * type **gem install appium_lib**
    * This will install appium_lib
 1. Installing Appium
@@ -47,6 +47,14 @@
 1. Installing RubyMine
    * google _jetbrains.com/ruby_
    * Download Ruby Mine
+1. Installing pry
+   * in terminal *gem install pry*
+1. Installing Jenkins Server
+   * go to *jenkins.io/download*
+   * download *Generic Java Package .war*
+   * move downloaded file to root folder
+   * navigate to root folder with terminal
+   * type *java -jar jenkins.war* everytime you want to use Jenkins
 1. Set Android device for Testing
    * Connect Android Device to computer with usb
    * On your device go to settings and navigate to _about phone_
@@ -58,5 +66,17 @@
    * type **adb devices**
    * this will list all devices that are connected to your computer
    * to install .apk file from your computer navigate to folder which contains it and type **adb install app-name.apk**
-   * Wait for installation to complete and your app is installed on your device 
- 
+   * Wait for installation to complete and your app is installed on your device
+1. Setting up own application for testing
+   * terminal: *adb devices* to check connected devices
+   * terminal packageName => *adb shell pm list packages*
+   * terminal: path => *adb shell pm path packageName*
+   * terminal: *adb pull path*
+   * open application on your device
+   * terminal *adb shell dumpsys window windows*
+   * find your application in list
+   * mCurrentFocus = everything before dot --> **app package**
+   * Main Activity or everything after dot with activity --> **app activity**
+   * To configure env.rb file just pass these information in fields:
+      * appPackage
+      * appActivity

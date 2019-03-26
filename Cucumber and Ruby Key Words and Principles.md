@@ -6,9 +6,10 @@
 1. [.feature file structure](#feature-file-structure)
 1. [Cucumber keywords](#cucumber-keywords)
 1. [Cucumber functionalities](#cucumber-functionalities)
-1. [Ruby](#ruby)
+1. [Ruby and Appium methods](#ruby-and-appium-methods)
 1. [Functionalities in Ruby](#functionalities-in-ruby)
 1. [Appium commands](#appium-commands)
+1. [Debugging](#debugging)
 1. [Terminal commands](#terminal-commands)
 1. [UI Automator Viewer](#ui-automator-viewer)
 
@@ -31,6 +32,7 @@
 
 ```ruby
   Feature: Description
+    Background: Steps to be executed in every Scenario in this feature file 
   Scenario: Description
   # Steps with keywords --> Steps are reusable accross feature files
   Given step
@@ -82,14 +84,26 @@ Cucumber keywords are **Given**, **When**, **Then**, **And**, **But**. They are 
       # anything that needs to be done before Test Scenario
       # launch Appium for example
     end
-    After do
+    After do |scenario|
       # anything that needs to be done after Test Scenario
       # kill Appium for example
       # Send screenshots of device if test fails for example
     end
+    After Configuration do
+    #what to do after every scenario
+    end
    ```
 
-## Ruby
+1. **Profiles** are placed in same level as features folder. Profiles file is : _cucumber.yml_. 
+
+   ```yml
+    <!-- Creates profile name and mames report in report.html file and reports to console  -->
+     name: -t @tag --format html --out report.html --format pretty
+   ```
+
+
+
+## Ruby and Appium methods
 
 1. _puts_ - command that prints message
 
@@ -118,10 +132,16 @@ Cucumber keywords are **Given**, **When**, **Then**, **And**, **But**. They are 
 1. *.split("criteia")* - split any array by any criteria
 1. *.each*  - iterate through array of data
 1. *.enabled?* - returns boolean true if state is enabled and false if its state is disabled
+1. *.failed?* - return boolean true if test failed and false if test passed
 1. *.tap* - click on screen
 1. *.swipe* - scroll on screen
 1. *.times{}* - repeat some code number of times
 1. *.exists{what}* - used to check if there is that element on page
+1. *.get_source* - return all values of that page in XML
+1. *Time.now(strftime("%d-%m-%Y_%H.%M.%S"))* - Time function formatting
+1. *File* - Class for File manipulation
+1. *.to_i* - transforms string to integer(for indexes --> .to_i-1)
+1. *biniding pry* - calls pry and pauses test execution and gives control to us
 
 ## Functionalities in Ruby
 
@@ -129,6 +149,14 @@ Cucumber keywords are **Given**, **When**, **Then**, **And**, **But**. They are 
 
    ```ruby
     Then('condition {string} or "([^"]*)"') do |arg|
+      puts("message" + arg)
+    end
+   ```
+
+1. Taking parameter as part of step ex 1st, 2nd, 3rd
+
+   ```ruby
+    Then('condition (\d+)(?:st|rd|th)?') do |arg|
       puts("message" + arg)
     end
    ```
@@ -217,11 +245,18 @@ Cucumber keywords are **Given**, **When**, **Then**, **And**, **But**. They are 
     Appium::TouchAction.new.swipe(start_x:X.xx, start_y:Y.yy, end_x:X.xx, end_y:Y.yy, duration:X ms).perform
    ```
 
+## Debugging
+
+Pry is tool that can be called if we want to pause our test execution and take over control over test at any time we want.
+
 ## Terminal commands
 
 1. _cucumber_ - executes every test scenario in every .feature file
 1. _cucumber -t @name_ - executes scenario or feature file with @name tag
 1. _cucumber --dry-run_ - executes scenarios without Ruby code, checks for step definitions
+1. _cucumber -t @tag1, @tag2_ - executes every scenario that either has @tag1 or @tag2
+1. _cucumber -t @tag1 -t @tag2_ - executes every scenario that has both @tag1 and @tag2
+1. _cucucmber -p profile-name_ -executes test scenario with this profile name
 1. _adb device_ - which device is connected to computer
 1. _uiautomatorviewer_ - starts automator viewer
 1. _irb_ - starts ruby console

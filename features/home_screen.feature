@@ -29,7 +29,7 @@ Scenario: User is able to add current conversion to Favourites list
   Then I press on favourite conversions
   And I verify "Length" added to favourite conversions list
 
-@wip
+@test
 Scenario: User able to search by existing conversion type
   Then  I press Search icon
   Then I type "Temperature" in search field

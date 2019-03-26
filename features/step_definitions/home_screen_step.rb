@@ -57,7 +57,12 @@ And(/^I verify "([^"]*)" added to favourite conversions list$/) do |unit_type|
 end
 
 Then(/^I press Search icon$/) do
-  find_element(id: "action_search").click
+  # find_element(id: "action_search").click
+  element = find_element(id: "action_search")
+  location = element.location
+  x = location[:x]
+  y = location[:y]
+  Appium::TouchAction.new.tap(x:x, y:y).perform
 end
 
 Then(/^I type "([^"]*)" in search field$/) do |search_text|
@@ -69,7 +74,6 @@ And(/^I press return button on my keyboard$/) do
 end
 
 Then(/^I see "([^"]*)" as a current unit converter$/) do |current_unit|
-  binding.pry
   find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{current_unit}']")
 end
 
